@@ -1,0 +1,7 @@
+{
+  "elasticsearch": {
+    "host": "localhost",
+    "port": 9201,
+    "index": "data-scores"
+  }
+}

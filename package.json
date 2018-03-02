@@ -1,5 +1,8 @@
 {
   "private": true,
   "author": "Christo <christo@cryptodrunks.net",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@sugarcube/sugarcube": "^0.7.0"
+  }
 }
