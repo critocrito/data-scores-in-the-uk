@@ -1,0 +1,28 @@
+{
+  "extends": ["./configs/secrets.json"],
+  "plugins": "csv_import,tika_location,elasticsearch_export,sheets_export",
+  "google": {
+    "spreadsheet_id": "1tGnahpmcNmO3qxddSKhOBoj9mQnLS2KfrfwLhLf8D8E",
+    "sheet_fields": [
+      "search_category",
+      "title",
+      "description",
+      "href"
+    ],
+    "sheet": "DDG Scrapes"
+  },
+  "csv": {
+    "id_fields": "href",
+    "import_source": "ddg_search"
+  },
+  "elasticsearch": {
+    "host": "localhost",
+    "port": 9201,
+    "index": "data-scores",
+    "omit_fields": "href_meta"
+  },
+  "queries": [
+    {"type": "tika_location_field", "term": "href"},
+    {"type": "glob_pattern", "term": "materials/ddg-scrapes-clean.csv"}
+  ]
+}

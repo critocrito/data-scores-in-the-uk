@@ -3,7 +3,6 @@
   "author": "Christo <christo@cryptodrunks.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "@sugarcube/sugarcube": "^0.7.0",
-    "xlsx": "^0.12.3"
+    "@sugarcube/sugarcube": "^0.7.0"
   }
 }
