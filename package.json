@@ -3,6 +3,10 @@
   "author": "Christo <christo@cryptodrunks.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "@sugarcube/sugarcube": "^0.7.0"
+      "@sugarcube/sugarcube-cli": "^0.8.0",
+      "@sugarcube/sugarcube-csv": "^0.8.0",
+      "@sugarcube/sugarcube-elasticsearch": "^0.8.0",
+      "@sugarcube/sugarcube-googlesheets": "^0.8.0",
+      "@sugarcube/sugarcube-workflow": "^0.8.0"
   }
 }
