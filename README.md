@@ -40,3 +40,24 @@ exported the file again in `materials/ddg-scraoes.csv`. Then I did more
 cleaning using the following command:
 
     cat ddg-scrapes.csv | grep -v "^NO" | grep -v "Noresults" | cut -d, -f2- | sed -En "s/_(.*)-(.*)_100taps.json/\1 \2/p" | (echo "search_category,title,description,href" && cat) > ddg-scrapes-clean.csv
+
+## Scripts
+
+### `scripts/city-geolocations.js`
+
+This script gets all city/county names from the [UK Data Scores - Results
+Cities
+spreadsheet](https://docs.google.com/spreadsheets/d/1KgkNPfNiVfxBm8lkVfU2OPyJtrGsQesYrY8t8xzilQU/edit#gid=1629766150)
+and looks up the geolocation for each city. It generates a new CSV and JSON
+file in `./data/cities-geolocated.{csv,json}`. The biggest junk of geo
+locations was taken from [cities of the world in
+Json](https://github.com/lutangar/cities.json) which is based on the [GeoNames
+Gazetteer](http://download.geonames.org/export/dump/).
+
+```sh
+curl -O https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json
+```
+
+The relevant part of cities in Great Britain is located in
+`./data/gb-cities.json`. Missing or ambiguous city names were manually
+complemented with data from Wikipedia.
