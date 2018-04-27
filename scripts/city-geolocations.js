@@ -8,6 +8,7 @@ const fs = require("fs");
 const path = require("path");
 const parse = require('csv-parse/lib/sync');
 const stringify = require("csv-stringify/lib/sync");
+const {crypto} = require("@sugarcube/core");
 const {withSession} = require("@sugarcube/plugin-googlesheets");
 
 const cities = fs.readFileSync(path.join(process.cwd(), "data/cities.csv"));
@@ -190,6 +191,11 @@ withSession(async ({getSpreadsheet}) => {
         results.push({city, county, lat, lng});
       }
     });
+  results.forEach(r => {
+    const idHash = crypto.hashKeys(["lat", "lng"], r);
+    const contentHash = crypto.hashKeys(["city", "county"], r);
+    Object.assign(r, {_sc_id_hash: idHash, _sc_content_hash: contentHash});
+  }); 
 }, {client, secret, tokens}).then(() => {
   console.log("Multiple Cities:");
   multiple.forEach(([name, count, d]) => console.log(`${name}: ${count} (${d})`));
