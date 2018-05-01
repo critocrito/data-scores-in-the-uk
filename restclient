@@ -1,0 +1,135 @@
+# -*- restclient -*-
+#
+#
+## All units with more than 5 locations
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "nested": {
+      "path": "$sc_locations",
+      "query": {
+        "bool": {
+          "must": {
+            "script": {
+              "script": {
+                "source": "doc['$sc_locations'].values.size() > 5",
+                "lang": "painless"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+# All fields with locations
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "from": 0, "size": 40,
+  "query": {
+    "nested": {
+      "path": "$sc_locations",
+      "query": {
+        "exists": {"field": "$sc_locations"}
+      }
+    }
+  },
+  "_source": {
+    "includes": ["$sc_keywords", "$sc_locations"],
+    "excludes": ["href_text"]
+  }
+}
+
+# List all units with keywords
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "from" : 0, "size" : 20,
+  "query": {
+    "exists": {"field": "$sc_keywords"}
+  },
+  "_source": {
+    "includes": ["$sc_keywords"],
+    "excludes": ["href_text"]
+  }
+}
+
+# Delete all $sc_locations
+POST http://localhost:9200/data-scores-staging-web-searches/_update_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "nested": {
+      "path": "$sc_locations",
+      "query": {
+        "exists": {"field": "$sc_locations"}
+      }
+    }
+  },
+  "script" : "ctx._source.remove(\"$sc_locations\")"
+}
+
+# Delete all $sc_keywords
+POST http://localhost:9200/data-scores-staging-web-searches/_update_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "exists": {"field": "$sc_keywords"}
+  },
+  "script" : "ctx._source.remove(\"$sc_keywords\")"
+}
+
+# All units in Aberdeen (Aberdeenshire) matching keyword mosaic
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "nested": {
+      "path": "$sc_locations",
+      "query": {
+        "bool": {
+          "must": [
+            {"match_phrase": {"$sc_locations.city": "Aberdeen"}},
+            {"match_phrase": {"$sc_locations.county": "Aberdeenshire"}},
+            {"match": {"$sc_locations.keywords": "mosaic"}}
+          ]
+        }
+      }
+    }
+  },
+  "_source": {
+    "excludes": ["href_text"]
+  }
+}
+
+# All units matching keyword mosaic
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "query": {
+    "nested": {
+      "path": "$sc_locations",
+      "query": {
+        "bool": {
+          "must": [
+            {"match": {"$sc_locations.keywords": "mosaic"}}
+          ]
+        }
+      }
+    }
+  },
+  "_source": {
+    "includes": ["$sc_id_hash", "$sc_locations.city", "$sc_locations.county"],
+    "excludes": ["href_text"]
+  }
+}
