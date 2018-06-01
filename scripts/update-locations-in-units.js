@@ -90,7 +90,7 @@ withSession(async ({getSpreadsheet, getRows}) => {
               );
               throw new Error(`Indexing units threw an error.`);
             }
-          }, elasticHost, elasticPort).then(([, history]) => {
+          }, {host: elasticHost, port: elasticPort}).then(([, history]) => {
             history.forEach(([k, meta]) => console.log(`${k}: ${JSON.stringify(meta)}.`));
           });
         },
