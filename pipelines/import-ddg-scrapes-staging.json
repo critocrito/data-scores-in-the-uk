@@ -1,6 +1,6 @@
 {
   "extends": ["./configs/secrets.json"],
-  "plugins": "csv_import,tika_location,elasticsearch_export,sheets_export",
+  "plugins": "csv_import,tika_location,elastic_export",
   "google": {
     "spreadsheet_id": "1Zg4Oa_YZCx0hDli9yCs12yTqN73Vb2IAycKxzprCmvo",
     "sheet_fields": [
@@ -15,9 +15,9 @@
     "id_fields": "href",
     "import_source": "ddg_search"
   },
-  "elasticsearch": {
+  "elastic": {
     "host": "localhost",
-    "port": 9201,
+    "port": 9200,
     "index": "data-scores-staging",
     "omit_fields": "href_meta"
   },
