@@ -30,7 +30,7 @@ GET http://localhost:9200/data-scores-staging-web-searches/_search
 Content-Type: application/json
 
 {
-  "from": 0, "size": 40,
+  "from": 0, "size": 100,
   "query": {
     "nested": {
       "path": "$sc_locations",
@@ -40,7 +40,27 @@ Content-Type: application/json
     }
   },
   "_source": {
-    "includes": ["$sc_keywords", "$sc_locations"],
+    "includes": ["$sc_id_hash", "$sc_locations"],
+    "excludes": ["href_text"]
+  }
+}
+
+# All fields with councils
+GET http://localhost:9200/data-scores-staging-web-searches/_search
+Content-Type: application/json
+
+{
+  "from": 0, "size": 100,
+  "query": {
+    "nested": {
+      "path": "$sc_council_areas",
+      "query": {
+        "exists": {"field": "$sc_council_areas"}
+      }
+    }
+  },
+  "_source": {
+    "includes": ["$sc_id_hash", "$sc_council_areas", "title", "href"],
     "excludes": ["href_text"]
   }
 }
@@ -85,6 +105,17 @@ Content-Type: application/json
     "exists": {"field": "$sc_keywords"}
   },
   "script" : "ctx._source.remove(\"$sc_keywords\")"
+}
+
+# Delete all $sc_councils
+POST http://localhost:9200/data-scores-staging-web-searches/_update_by_query
+Content-Type: application/json
+
+{
+  "query": {
+    "exists": {"field": "$sc_council_areas"}
+  },
+  "script" : "ctx._source.remove(\"$sc_council_areas\")"
 }
 
 # All units in Aberdeen (Aberdeenshire) matching keyword mosaic
