@@ -1,8 +1,10 @@
 package-lock.json
 node_modules
-npm-*.log
-yarn-*.log
+*.log
+*.lock
 _dist
 .npmrc
 .eslintcache
 .nyc_output
+.sugarcube_cache.json
+data/*.csv
