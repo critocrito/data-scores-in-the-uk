@@ -1,6 +1,19 @@
-experian
-caci
-qlik
-xantura
-mastadon
-canatics
+Experian
+CACI
+IBM
+Qlik
+Predpol
+Graphnet
+Canatics
+Xantura
+London Ventures
+LiquidLogic
+StataCorp
+Mastadon C
+Microsoft
+TaurusOps
+ATOS
+Fujitsu
+Cambridge University
+Care First
+Algoworks

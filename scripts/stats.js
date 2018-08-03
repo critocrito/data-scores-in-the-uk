@@ -60,40 +60,24 @@ const makeStats = async (keywords) => {
 (async () => {
   const companies = await keywords("./queries/companies.txt");
   const software = await keywords("./queries/software.txt");
-  const leads = await keywords("./queries/leads.txt");
-  const systems = await keywords("./queries/systems.txt");
 
   const companyStats = await makeStats(companies);
   const softwareStats = await makeStats(software);
-  const leadsStats = await makeStats(leads);
-  const systemsStats = await makeStats(systems);
 
   const stats = Object.assign(
     {},
     companyStats[0],
     softwareStats[0],
-    leadsStats[0],
-    systemsStats[0]
   );
   const ids = Array.from(
     new Set(Object
       .keys(companyStats[1])
-      .concat(Object.keys(softwareStats[1]))
-      .concat(Object.keys(leadsStats[1]))
-      .concat(Object.keys(systemsStats[1]))));
+      .concat(Object.keys(softwareStats[1]))));
 
   console.log("Companies");
-  // console.dir(companyStats[0]);
   console.dir(companyStats[1]);
   console.log("Softwares");
-  // console.dir(softwareStats[0]);
   console.dir(softwareStats[1]);
-  console.log("Leads");
-  // console.dir(leadsStats[0]);
-  console.dir(leadsStats[1]);
-  console.log("Systems");
-  // console.dir(systemsStats[0]);
-  console.dir(systemsStats[1]);
 
   Object.keys(stats).forEach(key => {
     if (stats[key] > 0) console.log(`${key}: ${stats[key]}`);

@@ -1,4 +1,0 @@
-portal analytics
-p-react
-scisys
-tpp

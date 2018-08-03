@@ -1,7 +1,24 @@
-qlikview
-witan
-mosaic
-carecentric
-care centric
-acorn
+Mosaic
+Acorn
 i2
+iBase
+SPSS
+Qlikview
+Qlikview V12 desktop
+Qlikview Publisher
+CareCentric
+Early Help Profiling System
+EHPS
+Early Years and Education System
+EYES
+STATA
+Witan
+Kixi
+Microsoft Dynamics CRM
+Taurus
+HART
+Harm and Assessment Risk Tool
+Care First 6
+Sequel Server Reporting Solutions
+SQL Server Reporting Solutions
+Red Sigma
