@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 process.on("unhandledRejection", up => {
-  throw up;
+  // throw up;
+  console.log(up);
+  process.exit(1);
 });
 
 const fs = require("fs");
@@ -59,25 +61,25 @@ const makeStats = async (keywords) => {
 
 (async () => {
   const companies = await keywords("./queries/companies.txt");
-  const software = await keywords("./queries/software.txt");
+  const systems = await keywords("./queries/systems.txt");
 
   const companyStats = await makeStats(companies);
-  const softwareStats = await makeStats(software);
+  const systemsStats = await makeStats(systems);
 
   const stats = Object.assign(
     {},
     companyStats[0],
-    softwareStats[0],
+    systemsStats[0],
   );
   const ids = Array.from(
     new Set(Object
       .keys(companyStats[1])
-      .concat(Object.keys(softwareStats[1]))));
+      .concat(Object.keys(systemsStats[1]))));
 
   console.log("Companies");
   console.dir(companyStats[1]);
-  console.log("Softwares");
-  console.dir(softwareStats[1]);
+  console.log("Systemss");
+  console.dir(systemsStats[1]);
 
   Object.keys(stats).forEach(key => {
     if (stats[key] > 0) console.log(`${key}: ${stats[key]}`);
