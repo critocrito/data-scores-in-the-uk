@@ -1,0 +1,49 @@
+{
+  "mappings": {
+    "units": {
+      "properties": {
+        "$sc_council_areas": {
+          "type": "nested"
+        },
+        "$sc_downloads": {
+          "type": "nested"
+        },
+        "$sc_elastic_score": {
+          "type": "long"
+        },
+        "$sc_media": {
+          "type": "nested"
+        },
+        "$sc_pubdates": {
+          "properties": {
+            "fetch": {
+              "type": "date"
+            },
+            "pipeline": {
+              "type": "date"
+            }
+          }
+        },
+        "$sc_queries": {
+          "type": "nested"
+        },
+        "$sc_relations": {
+          "type": "nested"
+        },
+        "companies": {
+          "type": "nested"
+        },
+        "softwares": {
+          "type": "nested"
+        },
+        "$sc_source": {
+          "type": "text"
+        },
+        "href_text": {
+          "type": "text",
+          "index_options": "offsets"
+        }
+      }
+    }
+  }
+}
