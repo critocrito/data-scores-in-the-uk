@@ -18,6 +18,12 @@ const elasticHost = "localhost";
 const elasticPort = 9201;
 const index = "data-scores";
 
+const blacklist = fs
+  .readFileSync("./queries/blacklist.txt")
+  .toString()
+  .split("\n")
+  .filter(x => x !== "");
+
 const keywords = async (target) => {
   const data = await readFile(target);
   return data.toString().split("\n").filter(x => x !== "");
@@ -31,10 +37,19 @@ const makeStats = async (keywords) => {
     await Elastic.Do(function* ({query}) {
       const q = {
         query: {
-          "multi_match": {
-            "query": keyword,
-            "type": "phrase_prefix",
-            "fields": ["title", "description", "href_text"]
+          bool: {
+            must_not: [{
+              ids: {
+                values: blacklist
+              }
+            }],
+            must: [{
+              multi_match: {
+                query: keyword,
+                type: "phrase_prefix",
+                fields: ["title", "description", "href_text"]
+              }
+            }]
           }
         },
         "_source": "$sc_id_hash"

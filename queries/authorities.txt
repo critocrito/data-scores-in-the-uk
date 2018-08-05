@@ -7,7 +7,7 @@ Angus Council
 Antrim and Newtownabbey Borough Council
 Ards and North Down Borough Council
 Argyll and Bute Council
-"Armagh City Banbridge and Craigavon Borough Council"
+Armagh City Banbridge and Craigavon Borough Council
 Arun District Council
 Ashfield District Council
 Ashford Borough Council
@@ -241,7 +241,7 @@ Newcastle City Council
 Newcastle-under-Lyme District Council
 New Forest District Council
 Newport City Council
-"Newry Mourne and Down District Council"
+Newry Mourne and Down District Council
 Norfolk County Council
 Northampton Borough Council
 Northamptonshire County Council

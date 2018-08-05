@@ -19,6 +19,13 @@ const index = "data-scores";
 
 const readFile = promisify(fs.readFile);
 
+const coordinates = JSON.parse(fs.readFileSync("./queries/coordinates.json"));
+const blacklist = fs
+  .readFileSync("./queries/blacklist.txt")
+  .toString()
+  .split("\n")
+  .filter(x => x !== "");
+
 const keywords = async (target) => {
   const data = await readFile(target);
   return data.toString().split("\n").filter(x => x !== "");
@@ -29,6 +36,11 @@ const searchKeyword = (keywords) =>
     const q = {
       query: {
         bool: {
+          must_not: [{
+            ids: {
+              values: blacklist
+            }
+          }],
           must: keywords.map(k => ({
             "multi_match": {
               "query": k,
@@ -53,6 +65,15 @@ const searchAuthorityKeyword = async (keywordType, authority, keywords) => {
   const client = new elastic.Client({host: `${elasticHost}:${elasticPort}`, log: "warning"})
 
   const q = {
+    query: {
+      bool: {
+        must_not: [{
+          ids: {
+            values: blacklist
+          }
+        }]
+      }
+    },
     aggs: {
       documents: {
         filters: {
@@ -120,8 +141,10 @@ const updateKeyword = async (field, ids, keyword) => {
 }
 
 const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
-  const field = "authorities";
   if (ids.length === 0) return;
+
+  const field = "authorities";
+  const coordinate = coordinates[authority] ? {location: coordinates[authority]} : {};
 
   console.log(`Updating ${ids.length} documents for ${authority}/${keyword}`);
 
@@ -130,14 +153,30 @@ const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
 
     const toIndex = units.map(u => {
       let authorities;
-      if(field in u) {
-        const authorityIndex = u[field].findIndex(({name}) => name === authority);
+
+      if (!coordinate.location)
+        console.log(`##### Missing coordinates for ${authority}. #####`);
+
+      if(u[field]) {
+        const authorityIndex = u[field].findIndex(
+          ({name}) => name === authority.toLowerCase()
+        );
+        
         if (authorityIndex === -1) {
-          authorities = u[field].concat({name: authority, [keywordType]: [keyword]})
+          authorities = u[field].concat(Object.assign(
+            {},
+            coordinate,
+            {
+              name: authority.toLowerCase(),
+              prettyName: authority,
+              [keywordType]: [keyword]
+            }
+          ))
         } else {
           const newAuthority = Object.assign(
             {},
             u[field][authorityIndex],
+            coordinate,
             {[keywordType]: Array.from(
               new Set(u[field][authorityIndex][keywordType] || []).add(keyword)
             )}
@@ -148,7 +187,15 @@ const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
             .concat(u[field].slice(authorityIndex + 1));
         }
       } else {
-        authorities = [{name: authority, [keywordType]: [keyword]}];
+        authorities = [Object.assign(
+          {},
+          coordinate,
+          {
+            name: authority.toLowerCase(),
+            prettyName: authority,
+            [keywordType]: [keyword]
+          }
+        )];
       }      
 
       return Object.assign({}, u, {authorities});
@@ -172,7 +219,7 @@ const upsertKeyword = field =>
     const [ids] = await searchKeyword([keyword]);
     await updateKeyword(field, ids, keyword);
   }
-    
+
 const upsertAuthorities = (keywordType) =>
   async (authority, keywords) => {
     const validKeywords = await searchAuthorityKeyword(keywordType, authority, keywords);
@@ -220,12 +267,12 @@ const updateSystemsAuthorities = async (authorities, keywords) => {
 
   console.log(`Updating ${authorities.length} authority keywords for companies.`);
   await updateCompaniesAuthorities(
-    authorities.map(s => s.toLowerCase().trim()),
+    authorities.map(s => s.trim()),
     companies.map(s => s.toLowerCase().trim())
   );
   console.log(`Updating ${authorities.length} authority keywords for systems.`);
   await updateSystemsAuthorities(
-    authorities.map(s => s.toLowerCase().trim()),
+    authorities.map(s => s.trim()),
     systems.map(s => s.toLowerCase().trim())
   );
 
