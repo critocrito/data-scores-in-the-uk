@@ -7,14 +7,14 @@ process.on("unhandledRejection", up => {
 const fs = require("fs");
 const path = require("path");
 const {promisify} = require("util");
-const {flowP, collectP, delayP} = require("dashp");
+const {collectP} = require("dashp");
 const {Elastic} = require("@sugarcube/plugin-elasticsearch");
 
 const readFile = promisify(fs.readFile);
 
 const elasticHost = "localhost";
 const elasticPort = 9201;
-const index = "data-scores-staging";
+const index = "data-scores";
 
 const keywords = async (target) => {
   const data = await readFile(target);
