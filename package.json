@@ -3,15 +3,18 @@
   "author": "Christo <christo@cryptodrunks.net",
   "license": "GPL-3.0",
   "dependencies": {
-    "@sugarcube/core": "^0.9.0",
     "@sugarcube/cli": "^0.9.0",
+    "@sugarcube/core": "^0.9.0",
     "@sugarcube/plugin-csv": "^0.9.0",
     "@sugarcube/plugin-elasticsearch": "^0.9.0",
     "@sugarcube/plugin-googlesheets": "^0.9.0",
     "@sugarcube/plugin-workflow": "^0.9.0",
+    "cheerio": "^1.0.0-rc.2",
     "csv-parse": "^2.2.0",
     "csv-stringify": "^3.0.0",
     "dashp": "^0.9.0",
+    "elasticdump": "^3.3.19",
+    "isomorphic-fetch": "^2.2.1",
     "lodash": "^4.17.10"
   }
 }
