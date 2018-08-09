@@ -122,8 +122,8 @@ const createDocumentsIndex = (units) => SheetsDo(
   }, {client, secret, tokens});
 
 (async () => {
-  const units = await fetchUnits();
+  const [units] = await fetchUnits();
   console.log(`Fetched ${units.length} units from the database.`);
   await createDocumentsIndex(units);
   process.exit(0);
-})()
+})();
