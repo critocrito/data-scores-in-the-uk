@@ -1,0 +1,25 @@
+{
+  "plugins": "elastic_import,csv_export",
+  "elastic": {
+    "host": "localhost",
+    "port": 9201,
+    "index": "data-scores",
+    "amount": 2000,
+    "include_fields": [
+      "_sc_id_hash",
+      "title",
+      "href",
+      "description",
+      "search_category",
+      "systems",
+      "companies",
+      "authorities.prettyName"
+    ]
+  },
+  "csv": {
+    "filename": "data-scores-data-extended.csv"
+  },
+  "queries": [
+    {"type": "elastic_query", "term": "{\"query\": {\"match_all\": {}}}"}
+  ]
+}
