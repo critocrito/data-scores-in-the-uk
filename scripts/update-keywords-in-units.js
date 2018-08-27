@@ -159,7 +159,7 @@ const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
 
       if(u[field]) {
         const authorityIndex = u[field].findIndex(
-          ({name}) => name === authority.toLowerCase()
+          ({name}) => name === authority
         );
         
         if (authorityIndex === -1) {
@@ -167,8 +167,7 @@ const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
             {},
             coordinate,
             {
-              name: authority.toLowerCase(),
-              prettyName: authority,
+              name: authority,
               [keywordType]: [keyword]
             }
           ))
@@ -191,8 +190,7 @@ const updateAuthorityKeyword = async (keywordType, ids, authority, keyword) => {
           {},
           coordinate,
           {
-            name: authority.toLowerCase(),
-            prettyName: authority,
+            name: authority,
             [keywordType]: [keyword]
           }
         )];
