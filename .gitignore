@@ -7,4 +7,7 @@ _dist
 .eslintcache
 .nyc_output
 .sugarcube_cache.json
+.nrepl*
+.dirs-local.el
+target
 data/*.csv

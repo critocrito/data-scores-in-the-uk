@@ -2,7 +2,7 @@
   "plugins": "ddg_search,tika_location,http_get,workflow_merge,elastic_export",
   "elastic": {
     "host": "localhost",
-    "port": 9201,
+    "port": 9200,
     "index": "data-scores",
     "omit_fields": "href_meta"
   }
