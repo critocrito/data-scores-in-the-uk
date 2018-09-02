@@ -9,7 +9,7 @@ Xantura
 London Ventures
 LiquidLogic
 StataCorp
-Mastadon C
+Mastodon C
 Microsoft
 TaurusOps
 ATOS
