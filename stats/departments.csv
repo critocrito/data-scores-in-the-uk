@@ -1,0 +1,173 @@
+name,count,companies,systems
+Monitor,90,StataCorp;Experian;Care First;Cambridge University;Microsoft;CACI;ATOS;Mastodon C;IBM;Fujitsu,HART;EYES;Mosaic;Acorn;SPSS;i2;STATA
+Environment Agency,52,Experian;Cambridge University;Microsoft;CACI;ATOS;Mastodon C;IBM,HART;EYES;Mosaic;Acorn;SPSS;Taurus;i2;STATA
+Health and Safety Executive,48,StataCorp;Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2;STATA
+Department for Transport,44,StataCorp;Experian;Cambridge University;Microsoft;CACI;ATOS;Mastodon C;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2;STATA
+Office for National Statistics,38,StataCorp;Experian;Cambridge University;Microsoft;CACI;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2;STATA
+The National Archives,38,Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2;STATA
+Home Office,36,Experian;Cambridge University;Microsoft;CACI;ATOS;Qlik;Mastodon C;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2;Qlikview;STATA
+Department for Environment Food and Rural Affairs,36,Cambridge University;Microsoft;CACI;Mastodon C;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2
+Cabinet Office,32,Experian;Cambridge University;Microsoft;ATOS;IBM;Fujitsu,HART;EYES;Mosaic;SPSS;STATA
+Department of Health,32,StataCorp;Experian;Cambridge University;Microsoft;Mastodon C;IBM,HART;EYES;Mosaic;SPSS;i2;STATA
+Met Office,31,Experian;Cambridge University;Microsoft;CACI;ATOS;IBM,HART;EYES;Mosaic;SPSS;i2
+HM Treasury,29,Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2
+Department of the Environment,28,Care First;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS
+Department for Communities,26,Experian;Cambridge University;Microsoft;CACI;Mastodon C;IBM,HART;EYES;Mosaic;SPSS;i2;Qlikview;STATA
+Department for Education,26,Cambridge University;Microsoft;CACI;ATOS;Mastodon C;IBM,HART;EYES;Mosaic;SPSS;STATA
+Department for Communities and Local Government,26,Experian;Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;SPSS;i2;STATA
+Scottish Executive,23,Experian;Cambridge University;Microsoft,HART;EYES;Mosaic;SPSS
+National Audit Office,21,Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2
+Transport for London,20,StataCorp;Experian;Cambridge University;Microsoft;CACI;ATOS;IBM;Fujitsu,HART;EYES;Mosaic;SPSS;i2;STATA
+Ministry of Justice,20,Experian;Cambridge University;Microsoft;CACI;ATOS;IBM;Fujitsu,HART;EYES;Mosaic;SPSS;STATA
+The Highways Agency,20,Cambridge University;Microsoft;CACI;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2
+Welsh Government,18,Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;SPSS;STATA
+Department for Work and Pensions,17,Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS;i2
+University of Edinburgh,16,Experian;Cambridge University;Microsoft;IBM,HART;EYES;Mosaic;Acorn;SPSS
+Office of the Deputy Prime Minister,16,StataCorp;Cambridge University;Microsoft,HART;EYES;Acorn;i2;STATA
+Greater London Authority,16,Experian;Cambridge University;Microsoft;CACI;ATOS;Fujitsu,HART;EYES;Mosaic;i2
+Scottish Natural Heritage,15,Care First;Cambridge University;Microsoft,HART;EYES;Mosaic;Acorn
+Ministry of Defence,15,Experian;Cambridge University;Microsoft;CACI;ATOS;Mastodon C;IBM;Fujitsu,HART;EYES;Mosaic;SPSS
+Natural England,14,Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;Acorn;i2
+Government Digital Service,14,Cambridge University;Microsoft;Fujitsu,HART;EYES;Mosaic
+Forestry Commission,13,Cambridge University;Microsoft,EYES;Mosaic;Acorn
+Department of Transport,13,Cambridge University;Microsoft;ATOS;Mastodon C;IBM,EYES;Mosaic;SPSS
+Department for International Development,13,Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;SPSS
+Department of Energy and Climate Change,12,Experian;Cambridge University;Microsoft;CACI;IBM,EYES;Mosaic;Acorn;i2
+Scottish Environment Protection Agency,12,Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS
+Office of Fair Trading,11,Experian;Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;Acorn;SPSS
+ODPM,11,Experian;Cambridge University;Microsoft;IBM,HART;EYES
+Department of Education,11,Cambridge University;Microsoft;ATOS;IBM,HART;EYES;Mosaic;SPSS
+Crown Prosecution Service,11,Cambridge University;Microsoft;Qlik,HART;EYES;i2
+Joint Nature Conservation Committee,11,Care First;Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;i2
+HM Revenue & Customs,10,Experian;Cambridge University;Microsoft;ATOS;Mastodon C,HART;EYES;i2
+GCHQ,10,Cambridge University;Microsoft;ATOS;IBM;Fujitsu,SPSS
+Local Government Association,10,Experian;Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;i2
+DfES,10,Cambridge University;Microsoft,HART;EYES;i2;STATA
+Skills Funding Agency,9,Experian,HART;EYES;SPSS;i2
+The Scottish Government,9,Experian;Cambridge University;Microsoft,HART;EYES;STATA
+Public Health England,8,Experian;Cambridge University;Microsoft;CACI,HART;EYES;Mosaic;SPSS
+London Fire Brigade,8,StataCorp;Experian;Cambridge University;Microsoft,EYES;Mosaic;i2;STATA
+Financial Conduct Authority,8,Experian;Microsoft;ATOS,HART;EYES;Acorn
+Companies House,8,Experian;Cambridge University;Microsoft;Mastodon C;IBM,HART;EYES;Mosaic
+Food Standards Agency,8,StataCorp;Cambridge University;Microsoft,HART;EYES;SPSS;STATA
+Competition Commission,8,Experian;Cambridge University;Microsoft,HART;Acorn;SPSS;STATA
+Nexus,7,Cambridge University,HART;EYES
+Natural Resources Wales,6,Cambridge University;Microsoft,HART;EYES
+Office of Rail Regulation,6,Microsoft;CACI;ATOS;IBM,
+Office of Public Sector Information,6,Cambridge University;IBM,HART;EYES;i2
+The Pensions Regulator,6,Experian;Microsoft,HART;Mosaic
+Serious Fraud Office,6,Microsoft,HART;EYES
+Foreign & Commonwealth Office,6,Cambridge University;Microsoft;CACI;ATOS;IBM,EYES;SPSS
+Department for Culture Media and Sport,6,Cambridge University;Microsoft,HART;EYES;Mosaic
+City of London Corporation,6,Cambridge University;Microsoft,HART;EYES
+The Technology Strategy Board,5,Experian;Cambridge University;IBM,EYES;Mosaic
+Employment Service,5,Cambridge University;Microsoft;IBM,Acorn;SPSS
+Driver and Vehicle Licensing Agency,5,Cambridge University;Microsoft,HART;Acorn
+Crown Commercial Service,5,Microsoft;IBM;Fujitsu,HART;Mosaic;SPSS
+Security Service,5,Microsoft;ATOS;IBM,HART;EYES;Mosaic;SPSS;i2
+"Department for Business, Enterprise and Regulatory Reform",5,Cambridge University;IBM,HART;EYES;Mosaic;i2
+"Department for Business, Energy & Industrial Strategy",4,Microsoft,HART;Mosaic
+Charity Commission,4,,HART;EYES
+Innovate UK,4,Microsoft;Mastodon C,Witan
+Defence Science and Technology Laboratory,4,Cambridge University;Microsoft;Fujitsu,EYES
+General Register Office for Scotland,4,Microsoft,HART;SPSS
+Office of Gas and Electricity Markets,4,Microsoft,EYES;Acorn
+Driving Standards Agency,4,,HART;EYES;Acorn
+Medicines and Healthcare Products Regulatory Agency,3,,HART;EYES
+HM Land Registry,3,Experian,HART;EYES;Mosaic
+Vehicle Certification Agency,3,Cambridge University,HART;Acorn
+Office of Qualifications and Examinations Regulation,3,Cambridge University,HART
+Wales Office,3,,HART;EYES
+London Borough of Newham,3,Experian,HART;i2
+London Borough of Hillingdon,3,Microsoft;CACI,HART
+Northern Ireland Assembly,3,Cambridge University,i2
+London Borough of Lewisham,3,,HART;EYES;i2
+London Borough of Richmond Upon Thames,3,Microsoft,HART;EYES;Acorn
+Highlands and Islands Enterprise,3,Cambridge University;ATOS;IBM,EYES;SPSS
+Brecon Beacons National Park Authority,3,Microsoft,HART;Mosaic
+UK Trade and Investment,3,,HART;EYES
+Nuclear Decommissioning Authority,2,Fujitsu,HART
+Improvement and Development Agency,2,Cambridge University,Mosaic;i2
+The Health and Social Care Information Centre,2,Cambridge University,Mosaic;SPSS
+Department For International Trade,2,Microsoft;IBM,
+London Borough of Redbridge,2,Fujitsu,HART
+Northern Ireland Housing Executive,2,Cambridge University,
+North London Waste Authority,2,,Mosaic;i2
+Disclosure and Barring Service,2,Microsoft,HART
+Department of Finance,2,Cambridge University,
+Historic Scotland,2,Microsoft,HART;EYES
+Peak District National Park Authority,2,Cambridge University,HART;Mosaic
+Criminal Records Bureau,2,Microsoft,EYES
+Gambling Commission,2,Microsoft,EYES
+Registers of Scotland,2,Cambridge University;Microsoft,Mosaic
+London Borough of Wandsworth,2,Experian;Cambridge University,HART;STATA
+Scotland Office,2,Microsoft,
+HM Prison Service,2,Cambridge University,HART;STATA
+Arts Council England,2,Experian,HART
+London Borough of Islington,2,IBM;Fujitsu,HART;i2
+Department of Education Northern Ireland,2,Microsoft,HART
+Welsh Local Government Association,2,Cambridge University,
+Criminal Injuries Compensation Authority,2,Microsoft,HART;EYES
+Northern Ireland Office,2,Microsoft,HART
+Northern Ireland Statistics and Research Agency,2,,HART;EYES
+London Borough of Bromley,2,Experian,HART
+London Borough of Hounslow,2,CACI,HART;i2
+Serious Organised Crime Agency,2,Microsoft,HART
+Stabilisation Unit,2,Microsoft;ATOS;IBM,SPSS
+Competition and Markets Authority,2,Experian,EYES;Acorn
+Fisheries Research Services,2,Care First;Microsoft,HART;Mosaic
+Convention of Scottish Local Authorities,2,Experian;Cambridge University,EYES
+National Records of Scotland,1,,HART
+Education Scotland,1,Microsoft,
+London Borough of Barnet,1,Experian,Mosaic
+Transport for Greater Manchester,1,Microsoft,
+Accountant in Bankruptcy,1,Experian,
+Council of the Isles of Scilly,1,Experian,
+Criminal Cases Review Commission,1,,HART
+HM Passport Office,1,Cambridge University,
+The Patent Office,1,Cambridge University,EYES
+Office of Water Services,1,Microsoft,
+Royal Borough of Kingston upon Thames,1,ATOS,
+Debt Management Office,1,,HART
+Single Source Regulations Office,1,,HART
+London Borough of Merton,1,Cambridge University,i2
+Independent Police Complaints Commission,1,Cambridge University,
+Government Actuary's Department,1,Microsoft,
+Food and Environment Research Agency,1,,HART
+UK Sport,1,Microsoft,EYES
+Office of the Advocate General,1,,HART
+Council for Science and Technology,1,Microsoft,
+Judicial Appointments Board for Scotland,1,,HART
+Borough of Poole,1,,EYES
+East London Waste Authority,1,,i2
+Merseyside Fire and Rescue Service,1,Microsoft,
+Driver & Vehicle Standards Agency,1,Microsoft,EYES
+South Downs National Park Authority,1,,HART
+Office of the Immigration Services Commissioner,1,,HART
+Lake District National Park Authority,1,,HART
+Department of Health Northern Ireland,1,,EYES
+West London Waste Authority,1,,i2
+Crown Office and Procurator Fiscal Service,1,,EYES
+Glamorgan Record Office,1,,EYES
+The Northern Ireland Public Sector,1,Cambridge University,
+Legal Services Commission,1,Cambridge University,HART
+Centre for the Protection of National Infrastructure,1,Microsoft,HART
+Child Support Agency,1,Microsoft,
+Northern Ireland Courts and Tribunals Service,1,Cambridge University,HART
+The Royal Borough of Kensington and Chelsea,1,,i2
+Essex County Fire & Rescue Service,1,Experian,Mosaic
+Local Government Data Unit ~ Wales,1,Microsoft,
+Export Credits Guarantee Department,1,Experian;Cambridge University;IBM,EYES
+Northern Ireland Judicial Appointments Commission,1,,HART
+Her Majesty's Inspectorate of Constabulary,1,Qlik,
+Greater Manchester Police,1,Experian;Microsoft,HART
+Wiltshire Police,1,IBM,SPSS
+Planning Inspectorate,1,,Acorn
+City and County of Swansea,1,,HART
+Association of Greater Manchester Authorities,1,IBM,
+West Midlands Fire Service,1,,HART
+Dartmoor National Park Authority,1,,HART
+Valuation Tribunal Service,1,,HART
+Local Government Boundary Commission,1,,HART
+National Association of Local Councils,1,,HART
+Exmoor National Park Authority,1,,HART
