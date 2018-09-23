@@ -30,3 +30,10 @@
         rows (maps->csv-data columns coll)]
     (with-open [file (io/writer path)]
       (csv/write-csv file (cons headers rows)))))
+
+(defn print-csv
+  "Convert a collection of maps to csv with columns and writes it to STDOUT."
+  [columns coll]
+  (let [headers (map name columns)
+        rows (maps->csv-data columns coll)]
+    (csv/write-csv *out* (cons headers rows))))

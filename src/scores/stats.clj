@@ -1,25 +1,25 @@
 (ns scores.stats)
 
-(require '[clojure.string :refer (join)]
-         '[scores.elastic :as elastic]
-         '[scores.csv :as csv])
+(require '[scores.elastic :as elastic])
 
-(defn count-docs-for-departments
+(defn count-by-nested-field
   "Generate document count stats per department."
-  [host port]
-  (let [docs (elastic/documents-with-departments host port)
-        xform (comp (map :_source) (map :departments) (mapcat identity))
-        departments (transduce xform conj docs)]
-    (->> departments
+  [elastic-url field]
+  (let [docs (elastic/by-exists elastic-url (keyword field))
+        xform (comp (map :_source) (map (keyword field)) (mapcat identity))
+        results (transduce xform conj docs)]
+    (->> results
          (reduce
-          (fn [memo department]
-            (let [name (:name department)
+          (fn [memo result]
+            (let [name (:name result)
                   count (or (get-in memo [name :count]) 0)
                   companies (or (get-in memo [name :companies]) [])
                   systems (or (get-in memo [name :systems]) [])]
-              (merge memo {name {:name name
-                                 :count (inc count)
-                                 :companies (vec (set (concat companies (:companies department))))
-                                 :systems (vec (set (concat systems (:systems department))))}})))
+              (merge memo
+                     {name
+                      {:name name
+                       :count (inc count)
+                       :companies (vec (set (concat companies (:companies result))))
+                       :systems (vec (set (concat systems (:systems result))))}})))
           {})
          vals)))

@@ -23,8 +23,8 @@
         (fn [field] {:nested {:path field :query {:exists {:field field}}}})]
     (merge base-query
            {:query {:bool {:must (vec (for [field rest]
-                                        (if (or (= field "authorities")
-                                                (= field "departments"))
+                                        (if (or (= (keyword field) :authorities)
+                                                (= (keyword field) :departments))
                                           (nested-query field)
                                           (simple-query field))))}}})))
 
@@ -63,7 +63,7 @@
 
 (defn by-exists
   "Fetch documents where sttributes exist."
-  [elastic-url fields]
+  [elastic-url & fields]
   (let [query (apply exists-query fields)]
     (->> query
          http/map->json-str

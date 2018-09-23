@@ -15,7 +15,7 @@
 (defn -main
   [& args]
   (let [columns [:name :count :companies :systems]
-        counts (stats/count-by-nested-field elastic-url :departments)]
+        counts (stats/count-by-nested-field elastic-url :authorities)]
     (->> counts
          (map #(merge % {:companies (string/join ";" (:companies %))
                          :systems (string/join ";" (:systems %))}))
