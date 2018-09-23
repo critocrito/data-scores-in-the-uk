@@ -1,12 +1,7 @@
 {
-  "extends": ["./configs/secrets.json"],
   "elastic": {
     "port": 9200,
     "index": "data-scores",
-    "include_fields": [
-      "_sc_source",
-      "description",
-      "href"
-    ]
+    "omit_fields": "href_meta"
   }
 }

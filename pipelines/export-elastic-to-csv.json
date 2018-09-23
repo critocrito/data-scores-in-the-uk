@@ -1,19 +1,18 @@
 {
+  "extends": ["./configs/elasticsearch.json"],
   "plugins": "elastic_import,csv_export",
   "elastic": {
-    "host": "localhost",
-    "port": 9201,
-    "index": "data-scores",
-    "amount": 2000,
+    "amount": 4000,
     "include_fields": [
       "_sc_id_hash",
       "title",
       "href",
       "description",
+      "search_batch",
       "search_category",
       "systems",
       "companies",
-      "authorities.prettyName"
+      "authorities"
     ]
   },
   "csv": {
