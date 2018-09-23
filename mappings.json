@@ -2,8 +2,87 @@
   "mappings": {
     "units": {
       "properties": {
-        "$sc_council_areas": {
-          "type": "nested"
+        "departments": {
+          "type": "nested",
+          "properties": {
+            "companies": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "systems": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "companies": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "authorities": {
+          "type": "nested",
+          "properties": {
+            "companies": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "location": {
+              "type": "geo_point"
+            },
+            "name": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword"
+                }
+              }
+            },
+            "systems": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            }
+          }
+        },
+        "href_text": {
+          "type": "text",
+          "index_options": "offsets"
+        },
+        "text": {
+          "type": "text",
+          "index_options": "offsets"
         },
         "$sc_downloads": {
           "type": "nested"
@@ -30,18 +109,8 @@
         "$sc_relations": {
           "type": "nested"
         },
-        "companies": {
-          "type": "nested"
-        },
-        "softwares": {
-          "type": "nested"
-        },
         "$sc_source": {
           "type": "text"
-        },
-        "href_text": {
-          "type": "text",
-          "index_options": "offsets"
         }
       }
     }
