@@ -2,7 +2,8 @@
 
 (set-env! :source-paths #{"src"}
           :resource-paths #{"src"}
-          :dependencies '[[org.clojure/data.csv "0.1.4"]])
+          :dependencies '[[org.clojure/clojure "1.8.0"]
+                          [org.clojure/data.csv "0.1.4"]])
 
 (require  '[scores.csv :as csv])
 

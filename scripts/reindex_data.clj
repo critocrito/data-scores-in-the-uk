@@ -1,7 +1,8 @@
 #!/usr/bin/env boot
 
 (set-env! :source-paths #{"src"}
-          :dependencies '[[http-kit "2.2.0"]
+          :dependencies '[[org.clojure/clojure "1.8.0"]
+                          [http-kit "2.2.0"]
                           [cheshire "5.8.0"]
                           [com.cemerick/url "0.1.1"]])
 
