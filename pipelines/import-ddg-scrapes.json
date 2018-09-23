@@ -1,16 +1,5 @@
 {
-  "extends": ["./configs/secrets.json"],
-  "plugins": "csv_import,tika_location,elasticsearch_export,sheets_export",
-  "google": {
-    "spreadsheet_id": "1tGnahpmcNmO3qxddSKhOBoj9mQnLS2KfrfwLhLf8D8E",
-    "sheet_fields": [
-      "search_category",
-      "title",
-      "description",
-      "href"
-    ],
-    "sheet": "DDG Scrapes"
-  },
+  "plugins": "csv_import,tika_location,elasticsearch_export",
   "csv": {
     "id_fields": "href",
     "import_source": "ddg_search"
