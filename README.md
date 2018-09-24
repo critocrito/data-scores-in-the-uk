@@ -87,13 +87,13 @@ Flag a set of documents as blacklisted. They will be excluded from any further a
 
 ### `scripts/generate-media-sites-queries.js`
 
-Generate statistics about the occurrences of authorities in the existing data set. It will print a sorted CSV data set to the screen.
-
 ### `scripts/stats_for_departments.clj`
 
 Generate statistics about the occurrences of departments in the existing data set. It will print a sorted CSV data set to the screen.
 
 ### `scripts/stats_for_authorities.clj`
+
+Generate statistics about the occurrences of authorities in the existing data set. It will print a sorted CSV data set to the screen.
 
 ### `scripts/stats.js`
 
