@@ -1,12 +1,30 @@
 # Data Scores in the UK
 
-## Requirements
+## Synopsis
 
-- [NodeJS](https://nodejs.org/)
-- [csvkit](https://csvkit.readthedocs.io/en/1.0.3/index.html)
-- Linux/Unix
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+As part of [our](https://datajusticelab.org/) project ‘Data Scores as
+Governance’ we have developed a tool to map and investigate the uses of data
+analytics and algorithms in public services in the UK. Little is still known
+about the implementation of data-driven systems and algorithmic processes in
+public services and how citizens are increasingly ‘scored’ based on the
+collection and combination of data.
+
+## Contents
+
+- [Installation](#installation)
+- [Data Processes](#data-processes)
+- [Scripts](#scripts)
+- [Bits and Pieces](#bits-and-pieces)
 
 ## Installation
+
+### Requirements
+
+- [Clojure](https://clojure.org)
+- [NodeJS](https://nodejs.org/)
+- Linux/Unix
 
 With NodeJS installed:
 
@@ -20,18 +38,35 @@ npm install
 
 Import the current list of DDG search results.
 
-### `bin/query-data.sh`
+### `bin/search-ddg.sh`
 
-This script is quite big, and I will break it into smaller pieces soon. It:
+### `bin/search-media-ddg.sh`
 
-- Queries the current list of keywords  and city names, and places them as CSV
-  files into `./data`. The  files are named `queries-keywords-<TODAY>.csv` and
-  `queries-cities-<TODAY>.csv` where `<TODAY>` is a timestamp in the format of
-  `YYYY-mm-dd`.
-- Searches the Elasticsearch database for every keyword and updates the
-  correct spreadsheets.
-- Searches the Elasticsearch database for every keyword AND every city name
-  and updates the correct spreadsheet.
+## Scripts
+
+### `scripts/update_companies.clj`
+
+### `scripts/update_systems.clj`
+
+### `scripts/update_authorities.clj`
+
+### `scripts/update_departments.clj`
+
+### `scripts/update_blacklisted.clj`
+
+### `scripts/generate-media-sites-queries.js`
+
+### `scripts/stats_for_departments.clj`
+
+### `scripts/stats_for_authorities.clj`
+
+### `scripts/stats.js`
+
+### `scripts/clean_gov_uk_domain_names.clj`
+
+### `scripts/british_newspapers.clj`
+
+### `scripts/reindex_data.clj`
 
 ## Bits and Pieces
 
@@ -40,24 +75,3 @@ exported the file again in `materials/ddg-scraoes.csv`. Then I did more
 cleaning using the following command:
 
     cat ddg-scrapes.csv | grep -v "^NO" | grep -v "Noresults" | cut -d, -f2- | sed -En "s/_(.*)-(.*)_100taps.json/\1 \2/p" | (echo "search_category,title,description,href" && cat) > ddg-scrapes-clean.csv
-
-## Scripts
-
-### `scripts/city-geolocations.js`
-
-This script gets all city/county names from the [UK Data Scores - Results
-Cities
-spreadsheet](https://docs.google.com/spreadsheets/d/1KgkNPfNiVfxBm8lkVfU2OPyJtrGsQesYrY8t8xzilQU/edit#gid=1629766150)
-and looks up the geolocation for each city. It generates a new CSV and JSON
-file in `./data/cities-geolocated.{csv,json}`. The biggest junk of geo
-locations was taken from [cities of the world in
-Json](https://github.com/lutangar/cities.json) which is based on the [GeoNames
-Gazetteer](http://download.geonames.org/export/dump/).
-
-```sh
-curl -O https://raw.githubusercontent.com/lutangar/cities.json/master/cities.json
-```
-
-The relevant part of cities in Great Britain is located in
-`./data/gb-cities.json`. Missing or ambiguous city names were manually
-complemented with data from Wikipedia.
