@@ -41,13 +41,15 @@ npm install
 
 ## Data Processes
 
+The [Sugarcube](https://gitlab.com/sugarcube/sugarcube) tool set is used for all data acquisition processes. Those processes can be repeated at any time.
+
 ### `bin/import-ddg-scrapes.sh`
 
 The initial data scrape from DuckDuckGo was done outside of this repository, but still using Sugarcube. This script imports extracts the contents of the search results of the initial data set and imports it into the database. The imported data can be found in [`materials/ddg-scrapes-clean.csv`](materials/ddg-scrapes-clean.csv).
 
-### `bin/search-ddg.sh`
+### `bin/search-ddg-gov.sh`
 
-Scrape DuckDuckGo for search results based on the initial set of [search queries](queries/search-terms.txt).
+Scrape DuckDuckGo for search results on government websites (`site:.gov.uk`) based on the initial set of [search queries](queries/search-terms.txt).
 
 ### `bin/import-foi-requests.sh`
 
@@ -56,6 +58,8 @@ Import the contents of the FOI requests into the database. The requests themselv
 ### `bin/search-media-ddg.sh`
 
 ## Scripts
+
+Post processing of data is done using a the following collection of scripts. They are idempotent and can be rerun at any time.
 
 ### `scripts/update_companies.clj`
 
