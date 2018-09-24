@@ -1,0 +1,9 @@
+{
+  "plugins": "tika_parse,workflow_merge,elastic_export",
+  "elastic": {
+    "host": "localhost",
+    "port": 9201,
+    "index": "data-scores",
+    "omit_fields": "meta"
+  }
+}

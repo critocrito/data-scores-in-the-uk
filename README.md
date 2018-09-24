@@ -49,6 +49,10 @@ The initial data scrape from DuckDuckGo was done outside of this repository, but
 
 Scrape DuckDuckGo for search results based on the initial set of [search queries](queries/search-terms.txt).
 
+### `bin/import-foi-requests.sh`
+
+Import the contents of the FOI requests into the database. The requests themselves are found in [`materials/foi-requests`](materials/foi-requests).
+
 ### `bin/search-media-ddg.sh`
 
 ## Scripts
