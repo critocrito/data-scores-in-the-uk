@@ -51,6 +51,10 @@ The initial data scrape from DuckDuckGo was done outside of this repository, but
 
 Scrape DuckDuckGo for search results on government websites (`site:.gov.uk`) based on the initial set of [search queries](queries/search-terms.txt).
 
+### `bin/search-ddg-auxiliary.sh`
+
+Scrape DuckDuckGo for search results for auxiliary websites based on the initial set of [search queries](queries/search-terms.txt). The list of auxiliary domains is maintained in [`queries/aux-sites.txt`](queries/aux-sites.txt).
+
 ### `bin/import-foi-requests.sh`
 
 Import the contents of the FOI requests into the database. The requests themselves are found in [`materials/foi-requests`](materials/foi-requests).
