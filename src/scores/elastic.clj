@@ -48,6 +48,16 @@
   (let [values (vec (if (sequential? ids) ids [ids]))]
     (merge base-query {:query {:ids {:values values}}})))
 
+(defn stats-query
+  "Query stats of mentions."
+  [type]
+  {:size 0,
+   :aggs
+   {(keyword type)
+    {:terms
+     {:size 100
+      :field (string/join [(name type) ".keyword"])}}}})
+
 (defn by-ids
   "Fetch documents by ids."
   [elastic-url ids]
@@ -132,3 +142,16 @@
                   hits)]
     (println (string/join ["Updating " (count docs) " documents for: " name "/" mention]))
     (update-documents elastic-url docs)))
+
+(defn mention-stats
+  "Fetch stats for a type of mention."
+  [elastic-url type]
+  (let [query (stats-query type)]
+    (->> query
+         http/map->json-str
+         (#(assoc {:method :get
+                   :url (str elastic-url "/_search")
+                   :headers {"Content-Type" "application/json"}}
+                  :body %))
+         http/make-http-call
+         (#(get-in % [:aggregations (keyword type) :buckets])))))

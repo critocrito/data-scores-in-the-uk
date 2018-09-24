@@ -87,6 +87,14 @@ Flag a set of documents as blacklisted. They will be excluded from any further a
 
 ### `scripts/generate-media-sites-queries.js`
 
+### `scripts/stats_for_companies.clj`
+
+Generate statistics about the occurrences of companies in the existing data set. It will print a sorted CSV data set to the screen.
+
+### `scripts/stats_for_systems.clj`
+
+Generate statistics about the occurrences of systems in the existing data set. It will print a sorted CSV data set to the screen.
+
 ### `scripts/stats_for_departments.clj`
 
 Generate statistics about the occurrences of departments in the existing data set. It will print a sorted CSV data set to the screen.
@@ -94,8 +102,6 @@ Generate statistics about the occurrences of departments in the existing data se
 ### `scripts/stats_for_authorities.clj`
 
 Generate statistics about the occurrences of authorities in the existing data set. It will print a sorted CSV data set to the screen.
-
-### `scripts/stats.js`
 
 ### `scripts/clean_gov_uk_domain_names.clj`
 
