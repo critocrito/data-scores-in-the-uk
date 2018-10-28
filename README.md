@@ -61,6 +61,17 @@ Import the contents of the FOI requests into the database. The requests themselv
 
 ### `bin/search-media-ddg.sh`
 
+Scrape DuckDuckGo for articles from media websites. This scripts works slightly different due to the amount of possible scrapes. Those scrape need to run on multiple servers in parallel to reduce the time it takes to scrape.
+
+- Use the `./scripts/british_newspapers.clj` to create the list of media domains.
+- Split the domains into chunks. On every server run (adopt `-n r/4` to the right amount of servers).
+
+    split -n r/4 --additional-suffix=.txt british-papers-domains.txt papers-
+
+- Start the scrape on each server:
+
+    ./bin//search-media-ddg.sh queries/papers-aa.txt
+
 ## Scripts
 
 Post processing of data is done using a the following collection of scripts. They are idempotent and can be rerun at any time.

@@ -1,0 +1,16 @@
+dailymail.co.uk
+dailystar.co.uk
+express.co.uk
+ft.com
+guardian.co.uk
+independent.co.uk
+london-gazette.co.uk
+mailonsunday.co.uk
+metro.co.uk
+mirror.co.uk
+morningstaronline.co.uk
+observer.guardian.co.uk
+telegraph.co.uk
+thesun.co.uk
+thesundaytimes.co.uk
+thetimes.co.uk
