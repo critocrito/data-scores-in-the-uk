@@ -32,17 +32,16 @@ do
                              --arg q "'" \
                              'split("\n")[:-1] |
                          map(split(",,") |
-                         [{
-                           search_batch: ["media website"],
-                           search_category: [.[0]]
-                          }, {
+                         [{type: "workflow_merge",
+                          term: {
+                            search_batch: ["media website"],
+                            search_category: [.[0]]
+                           }}, {
                            type: "ddg_search",
                            term: "\($q)\(.[0])\($q) \(.[1]) site:\(.[2])"
                           }]
                          ) |
                          flatten' > q.json
-      echo $(cat q.json)
-
 
       doit "q.json" | tee -a ./logs/ddg-media-"$DATE".log
 
