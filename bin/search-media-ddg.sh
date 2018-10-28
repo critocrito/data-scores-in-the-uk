@@ -8,11 +8,9 @@ counter=0
 
 doit() {
   "$(npm bin)"/sugarcube -c pipelines/search-duckduckgo.json \
-              -Q ddg_search:'"'"$1"'" site:"'"$2"'"' \
+              -q "$1" \
               -Q tika_location_field:href \
-              -Q workflow_merge:'{"search_batch":["media website"],"search_category":["'"$1"'"]}' \
               -d
-
 }
 export -f doit
 
@@ -26,7 +24,24 @@ do
       echo "Processed $counter queries"
     fi
 
-    doit "$i" "$j" | tee -a ./logs/ddg-media-"$DATE".log
+    echo "$i,,$j" | jq --slurp \
+                       --raw-input \
+                       --arg q "'" \
+                       'split("\n")[:-1] |
+                         map(split(",,") |
+                         [{
+                           search_batch: ["media website"],
+                           search_category: [.[0]]
+                          }, {
+                           type: "ddg_search",
+                           term: "\($q)\(.[0])\($q) site:\(.[1])"
+                          }]
+                         ) |
+                         flatten' > q.json
+
+    doit "q.json" | tee -a ./logs/ddg-media-"$DATE".log
+
+    rm q.json
 
     WAIT_TIME=$(( ( RANDOM % 300)  + 120 ))
     echo "Sleeping for $WAIT_TIME seconds."
