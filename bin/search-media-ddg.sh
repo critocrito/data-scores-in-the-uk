@@ -35,7 +35,7 @@ do
                          [{type: "workflow_merge",
                           term: {
                             search_batch: ["media website"],
-                            search_category: [.[0]]
+                            search_category: [.[0], .[1]]
                            }}, {
                            type: "ddg_search",
                            term: "\($q)\(.[0])\($q) \(.[1]) site:\(.[2])"
