@@ -15,6 +15,26 @@
   {:_source sources
    :size 3000})
 
+(def media-list-query
+  {:_source [:href :search_category]
+   :size 1000
+   :sort [:_doc]
+   :query {:match {:search_batch "media website"}}})
+
+(def tagged-media-list-query
+  {:_source [:href :search_category]
+   :size 1000
+   :query
+   {:bool
+    {:must [{:match {:search_batch "media website"}}
+            {:bool {:should [{:exists {:field "companies"}}
+                             {:exists {:field "systems"}}
+                             {:nested {:path "departments"
+                                       :query {:bool {:must [{:exists {:field "departments"}}]}}}}
+                             {:nested {:path "authorities"
+                                       :query {:bool {:must [{:exists {:field "authorities"}}]}}}}]}}]}}
+   :sort [:_doc]})
+
 (defn exists-query
   "Query documents that contain a field."
   [& rest]
@@ -51,7 +71,7 @@
 (defn stats-query
   "Query stats of mentions."
   [type]
-  {:size 0,
+  {:size 0
    :aggs
    {(keyword type)
     {:terms
@@ -143,6 +163,22 @@
     (println (string/join ["Updating " (count docs) " documents for: " name "/" mention]))
     (update-documents elastic-url docs)))
 
+(defn scrolled-request
+  [elastic-url result scroll-id]
+  (let [query {:scroll "1m" :scroll_id scroll-id}
+        [id hits] (->> query
+                       http/map->json-str
+                       (#(assoc {:method :post
+                                 :url (str elastic-url "/_search/scroll")
+                                 :headers {"Content-Type" "application/json"}}
+                                :body %))
+                       http/make-http-call
+                       ((fn [resp] [(get-in resp [:_scroll_id]) (get-in resp [:hits :hits])])))]
+
+    (if (not-empty hits)
+      (recur elastic-url (conj result hits) id)
+      (vec (flatten result)))))
+
 (defn mention-stats
   "Fetch stats for a type of mention."
   [elastic-url type]
@@ -155,3 +191,18 @@
                   :body %))
          http/make-http-call
          (#(get-in % [:aggregations (keyword type) :buckets])))))
+
+(defn media-urls
+  "List all urls and search batches from media websites."
+  [elastic-url index initial-query]
+  (let [[id hits] (->> initial-query
+                       http/map->json-str
+                       (#(assoc {:method :post
+                                 :url (str elastic-url "/" index "/_search")
+                                 :query-params {:scroll "1m"}
+                                 :headers {"Content-Type" "application/json"}}
+                                :body %))
+                       http/make-http-call
+                       ((fn [resp] [(get-in resp [:_scroll_id]) (get-in resp [:hits :hits])])))
+        results (scrolled-request elastic-url hits id)]
+    (map :_source results)))

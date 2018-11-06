@@ -1,4 +1,112 @@
 {
+  "Woking Borough Council": [
+    51.316689,
+    -0.559128
+  ],
+  "West Berkshire Council": [
+    51.4009,
+    -1.3235
+  ],
+  "Vale of Glamorgan Council": [
+    51.416667,
+    -3.416667
+  ],
+  "Tonbridge and Malling Borough Council": [
+    51.274444,
+    0.3925
+  ],
+  "Swindon Borough Council": [
+    51.563,
+    -1.763
+  ],
+  "Stirling Council": [
+    56.5,
+    -4
+  ],
+  "North East Lincolnshire Council": [
+    53.55,
+    -0.1
+  ],
+  "Medway Council": [
+    51.39,
+    0.54
+  ],
+  "London Borough of Barking and Dagenham": [
+    51.55,
+    0.116667
+  ],
+  "Leicestershire County Council": [
+    52.716667,
+    -1.183333
+  ],
+  "Leicester City Council": [
+    52.6313,
+    -1.1334
+  ],
+  "Lancaster City Council": [
+    54.047,
+    -2.801
+  ],
+  "Hartlepool Borough Council": [
+    54.686389,
+    -1.210833
+  ],
+  "Gwynedd Council": [
+    52.833333,
+    -3.916667
+  ],
+  "Forest of Dean District Council": [
+    51.783333,
+    -2.55
+  ],
+  "East Lothian Council": [
+    55.916667,
+    -2.75
+  ],
+  "Dorset County Council": [
+    50.716111,
+    -2.440556
+  ],
+  "Coventry City Council": [
+    52.408056,
+    -1.510556
+  ],
+  "Ceredigion County Council": [
+    52.252778,
+    -4.000278
+  ],
+  "Argyll and Bute Council": [
+    55.933,
+    -5.349
+  ],
+  "Angus Council": [
+    56.666667,
+    -2.916667
+  ],
+  "Aberdeen City Council": [
+    57.15,
+    -2.11
+  ],
+  "West Lothian Council": [
+    55.916667,
+    -3.5
+  ],
+  "Warwickshire County Council": [
+    52.28,
+    -1.59
+  ],
+  "Teignbridge District Council": [
+    50.582,
+    -3.628
+  ],
+  "South Tyneside Council": [
+    54.992,
+    -1.429
+  ],
+  "Shetland Islands Council": [
+    60.3038,
+    -1.2689
+  ],
   "London Borough of Ealing": [
     51.5,
     -0.333333
@@ -938,5 +1046,37 @@
   "Derbyshire County Council": [
     53.133333,
     -1.6
+  ],
+  "Cumbria County Council": [
+    54.5,
+    -3.25
+  ],
+  "Dundee City Council": [
+    56.462,
+    -2.9707
+  ],
+  "Gravesham Borough Council": [
+    51.409,
+    0.399
+  ],
+  "London Borough of Harrow": [
+    51.566667,
+    -0.333333
+  ],
+  "London Borough of Sutton": [
+    51.36,
+    -0.2
+  ],
+  "Mid Suffolk District Council": [
+    52.156,
+    1.0489
+  ],
+  "Portsmouth City Council": [
+    50.816667,
+    -1.083333
+  ],
+  "Shepway District Council": [
+    51.07885,
+    1.174614
   ]
 }
