@@ -78,6 +78,13 @@
      {:size 100
       :field (string/join [(name type) ".keyword"])}}}})
 
+(def search-batches-query
+  "Query stats by search batch."
+  {:aggs
+   {:search_batches
+    {:terms
+     {:field "search_batch.keyword"}}}})
+
 (defn by-ids
   "Fetch documents by ids."
   [elastic-url ids]
@@ -206,3 +213,15 @@
                        ((fn [resp] [(get-in resp [:_scroll_id]) (get-in resp [:hits :hits])])))
         results (scrolled-request elastic-url hits id)]
     (map :_source results)))
+
+(defn search-batches-stats
+  "Count stats by search batches."
+  [elastic-url]
+  (->> search-batches-query
+       http/map->json-str
+       (#(assoc {:method :post
+                 :url (str elastic-url "/_search")
+                 :headers {"Content-Type" "application/json"}}
+                :body %))
+       http/make-http-call
+       ((fn [resp] (get-in resp [:aggregations :search_batches :buckets])))))
