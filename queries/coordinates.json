@@ -1078,5 +1078,26 @@
   "Shepway District Council": [
     51.07885,
     1.174614
-  ]
+  ],
+    "East Renfrewshire Council": [
+        55.7984, -4.2907
+    ],
+    "Shropshire Council": [
+        52.616667, -2.716667
+    ],
+    "Aberdeenshire Council": [
+        57.151, -2.123
+    ],
+    "Dartford Borough Council": [
+        51.464, 0.254
+    ],
+    "Perth and Kinross Council": [
+        56.397, -3.437
+    ],
+    "St Helens Council": [
+        53.454, -2.746
+    ],
+    "Trafford Metropolitan Borough Council": [
+        53.433333, -2.3
+    ]
 }
