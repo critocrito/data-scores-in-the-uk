@@ -10,13 +10,11 @@ CareCentric
 Early Help Profiling System
 EHPS
 Early Years and Education System
-EYES
 STATA
 Witan
 Kixi
 Microsoft Dynamics CRM
 Taurus
-HART
 Harm and Assessment Risk Tool
 Care First 6
 Sequel Server Reporting Solutions
