@@ -1,0 +1,8 @@
+{
+    "private": true,
+    "name": "sugarcube-plugin-whatdotheyknow",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "Christo <christo@cryptodrunks.net>",
+    "license": "GPL-3.0"
+}

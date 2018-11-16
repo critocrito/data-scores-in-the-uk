@@ -1,0 +1,15 @@
+FOI Request on What Do They Know: {{=it.href}}
+Current state: {{=it.state}}
+
+{{~ it.sections :s}}
+From: {{=s.author}} ({{=s.date}})
+Reference: {{=s.reference}}
+
+{{=s.text}}
+
+{{~ s.attachments :a}}
+Attachment Reference: {{=a.href}}
+
+{{=a.text}}
+{{~}}
+{{~}}

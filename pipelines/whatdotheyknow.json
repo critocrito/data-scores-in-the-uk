@@ -1,0 +1,17 @@
+{
+  "extends": [
+    "./configs/secrets.json",
+    "./configs/elasticsearch.json"
+  ],
+  "plugins": [
+    "whatdotheyknow_queries",
+    "whatdotheyknow_fetch",
+    "elastic_export"
+  ],
+  "google": {
+    "spreadsheet_id": "1QS4tzopAV0h0BFr-sp-wQ-8Ao2ry-Ayri64XixqRe-o"
+  },
+  "queries": [
+    {"type": "sheets_query", "term": "Batch FOIs - Outcome Coding"}
+  ]
+}
