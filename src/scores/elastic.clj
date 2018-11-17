@@ -85,6 +85,13 @@
     {:terms
      {:field "search_batch.keyword"}}}})
 
+(def auxiliary-websites-query
+  "Query for all auxiliary websites."
+  (merge base-query
+         {:query
+          {:term
+           {:search_batch.keyword "auxiliary website"}}}))
+
 (defn by-ids
   "Fetch documents by ids."
   [elastic-url ids]
@@ -225,3 +232,15 @@
                 :body %))
        http/make-http-call
        ((fn [resp] (get-in resp [:aggregations :search_batches :buckets])))))
+
+(defn auxiliary-websites
+  "Fetch all auxiliary websites."
+  [elastic-url]
+  (->> auxiliary-websites-query
+       http/map->json-str
+       (#(assoc {:method :post
+                 :url (str elastic-url "/_search")
+                 :headers {"Content-Type" "application/json"}}
+                :body %))
+       http/make-http-call
+       ((fn [resp] (get-in resp [:hits :hits])))))
