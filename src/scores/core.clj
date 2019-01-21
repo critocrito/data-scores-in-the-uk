@@ -24,12 +24,12 @@
   [entries entry]
   (let [elem (first (filter #(= (:name entry) (:name %)) entries))]
     (if elem
-      (let [{:keys [companies systems] :or {:companies [] :systems []}} elem
+      (let [{:keys [name companies systems] :or {:companies [] :systems []}} elem
             new-elem (merge elem
                             {:companies (reduce concat-uniq companies (:companies entry))
                              :systems (reduce concat-uniq systems (:systems entry))})]
         (->> entries
-             (filter #(not= (:name entry) (:name %)))
+             (filter #(not= name (:name %)))
              (concat [new-elem])
              vec))
       (concat entries [entry]))))
