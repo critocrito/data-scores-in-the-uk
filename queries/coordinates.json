@@ -1134,5 +1134,68 @@
   ],
   "Melton Borough Council": [
     52.8, -0.8
+  ],
+  "Erewash Borough Council": [
+    52.916667, -1.316667
+  ],
+  "Copeland Borough Council": [
+    54.431, -3.389
+  ],
+  "Folkestone & Hythe District Council": [
+    51.07885, 1.174614
+  ],
+  "Fylde Borough Council": [
+    53.763, -2.934
+  ],
+  "Halton Borough Council": [
+    53.345, -2.722
+  ],
+  "Huntingdonshire District Council": [
+    52.416667, -0.25
+  ],
+  "Knowsley Metropolitan Borough Council": [
+    53.439, -2.851
+  ],
+  "Neath Port Talbot County Borough Council": [
+    51.645556, -3.745
+  ],
+  "Newcastle-under-Lyme District Council": [
+    53.011, -2.229
+  ],
+  "New Forest District Council": [
+    50.879, -1.633
+  ],
+  "Northampton Borough Council": [
+    52.230375, -0.893753
+  ],
+  "Orkney Islands Council": [
+    59, -3
+  ],
+  "Rochford District Council": [
+    51.5817, 0.7082
+  ],
+  "Royal Borough of Windsor and Maidenhead": [
+    51.4667, -0.6667
+  ],
+  "Sandwell Metropolitan Borough Council": [
+    52.505278, -2.017222
+  ],
+  "South Bucks District Council": [
+    51.5764, -0.639
+  ],
+  "London Borough of Brent": [
+      51.566111, -0.273889
+  ],
+  "Dudley Metropolitan Borough Council": [
+      52.509, -2.087
+  ],
+  "Torbay Council": [
+      50.452222, -3.556944
+  ],
+  "Greater Manchester Combined Authority": [
+      53.5, -2.316667
+  ],
+  "Manchester Clinical Commissioning Group": [
+      53.4, -2.31
   ]
 }
