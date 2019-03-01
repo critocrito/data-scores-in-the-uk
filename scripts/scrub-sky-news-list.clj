@@ -19,11 +19,11 @@
 
 (defn -main
   [& args]
-  (doall (let [rows (map (fn [{:keys [name] :as entry}]
+  (doall (let [rows (map (fn [{:keys [name link] :as entry}]
                            (let [coordinate ((keyword name) coordinates)]
                              (when-not coordinate
                                (println (string/join ["Missing coordinates for " name]))
                                (System/exit 0))
-                             (merge entry {:location coordinate})))
+                             (merge entry {:location coordinate :link (string/replace link #"alaveteli_pro\/info_requests" "request")})))
                          sky-news-list)]
            (println (http/map->json-str rows)))))
