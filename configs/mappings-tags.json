@@ -1,0 +1,29 @@
+{
+  "mappings": {
+    "_doc": {
+      "properties": {
+        "entity": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "label": {
+          "type": "text",
+          "fields": {
+            "keyword": {
+              "type": "keyword",
+              "ignore_above": 256
+            }
+          }
+        },
+        "documents": {
+          "type": "keyword"
+        }
+      }
+    }
+  }
+}

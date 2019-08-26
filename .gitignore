@@ -13,3 +13,4 @@ target
 data/*.csv
 logs/*
 !.keep
+.python-version
